@@ -1,0 +1,549 @@
+:root{
+  --cream:#f4efe6;
+  --paper:#ffffff;
+  --ink:#111111;
+  --muted:#666666;
+  --line:rgba(17,17,17,.18);
+  --line2:rgba(17,17,17,.10);
+  --radius:18px;
+  --blue:#2f57ff;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Source Serif 4", ui-serif, Georgia, "Times New Roman", Times, serif;
+  letter-spacing:.12px;
+}
+
+.page{
+  max-width:860px;
+  margin:0 auto;
+  padding:18px 16px 80px;
+}
+
+/* ===== NAV ===== */
+.topnav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(244,239,230,.86);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line2);
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  padding:12px 14px;
+}
+
+.topnav a{
+  color:var(--ink);
+  text-decoration:none;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  padding:8px 10px;
+  border-radius:999px;
+}
+.topnav a:hover{ background:rgba(17,17,17,.06); }
+
+/* ===== HERO ===== */
+.hero{
+  margin-top:18px;
+  background: transparent;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0;
+  padding: 34px 16px 26px;
+  text-align:center;
+}
+
+.kicker{
+  margin:0 0 10px;
+  font-family:"Caveat", cursive;
+  font-size:38px;
+  line-height:1;
+}
+
+.names{
+  margin:0;
+  font-size:54px;
+  line-height:1.02;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+
+.dateplace{
+  margin:14px 0 0;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+}
+
+.hairline{
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(17,17,17,.45), transparent);
+  margin:18px auto;
+  width:min(520px, 90%);
+}
+
+.lead{
+  margin:0 auto;
+  max-width:62ch;
+  font-size:18px;
+  line-height:1.75;
+}
+
+.ctaRow{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+/* Buttons */
+.btn, button{
+  display:inline-block;
+  border:1px solid rgba(17,17,17,.25);
+  background:var(--ink);
+  color:#fff;
+  text-decoration:none;
+  border-radius:14px;
+  padding:12px 16px;
+  font-size:16px;
+  cursor:pointer;
+}
+.btn:hover, button:hover{ filter:brightness(.92); }
+.btn.ghost{
+  background:transparent;
+  color:var(--ink);
+}
+
+/* ===== FULL BLEED IMAGES ===== */
+.fullbleed{
+  margin-top:22px;
+  width:100vw;
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
+}
+
+.fullbleed img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.fullbleed.heroPhoto img{
+  height: 680px;
+  object-position: 50% 20%;
+}
+.fullbleed.partyPhoto img{
+  height: 520px;
+  object-position: 50% 40%;
+}
+
+@media (max-width: 720px){
+  .fullbleed.heroPhoto img{ height: 420px; }
+  .fullbleed.partyPhoto img{ height: 360px; }
+}
+
+/* ===== GLOBAL TEXT (NO columneta) ===== */
+p{
+  margin:10px 0 0;
+  line-height:1.85;
+  font-size:17px;
+  max-width:none;
+}
+
+.small{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:10px;
+}
+
+/* ===== DOODLES (SPRITE 3x2) — TRANSPARENT + BEN ALINEAT ===== */
+.doodleSprite{
+  width: 180px;
+  height: 180px;
+
+  /* sprite */
+  background-image: url("img/doodles.png");
+  background-repeat: no-repeat;
+  background-size: 300% 200%;
+
+  /* clau: NO fons, NO caixa, NO ombra */
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  /* una mica més “ink” */
+  filter: contrast(1.08);
+}
+
+/* Top row */
+.doodle--danceMan { background-position:   0%   0%; }
+.doodle--rings    { background-position:  50%   0%; }
+.doodle--margarita{ background-position: 100%   0%; }
+
+/* Bottom row */
+.doodle--casa      { background-position:   0% 100%; }
+.doodle--taula     { background-position:  50% 100%; }
+.doodle--copasBall { background-position: 100% 100%; }
+
+/* El contenidor del doodle: transparent i centrat */
+.weekend .ill{
+  min-width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Mòbil */
+@media (max-width:760px){
+  .doodleSprite{ width: 150px; height: 150px; }
+  .weekend .ill{ min-width: 0; justify-content: flex-start; }
+}
+
+/* ===== RSVP (net i bonic) ===== */
+.rsvpClean{
+  margin-top: 28px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.rsvpInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.rsvpTop{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap: 26px;
+  align-items:start;
+  margin: 6px 0 18px;
+}
+
+@media (max-width:760px){
+  .rsvpTop{ grid-template-columns: 1fr; }
+}
+
+/* Formulari “paper” (Opció 5) */
+#rsvpForm{
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(17,17,17,.12);
+  border-radius: 18px;
+  padding: 22px 18px;
+}
+
+/* Form basics */
+.formTitle{
+  margin:22px 0 8px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+label{
+  display:block;
+  margin:12px 0;
+  font-size:14px;
+}
+
+input, select, textarea{
+  width:100%;
+  margin-top:6px;
+  padding:12px 12px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:#fff;
+  color:var(--ink);
+  font: inherit;
+}
+
+input:focus, select:focus, textarea:focus{
+  outline:none;
+  border-color:rgba(17,17,17,.35);
+  box-shadow:0 0 0 3px rgba(17,17,17,.08);
+}
+
+.check{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin:10px 0;
+}
+.check input{ width:auto; margin:0; }
+
+.radioRow{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:6px;
+  padding:10px 12px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:rgba(17,17,17,.02);
+}
+
+.tag{
+  color:var(--muted);
+  font-size:12px;
+  margin-left:6px;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+}
+@media (min-width: 720px){
+  .grid2{ grid-template-columns: 1fr 1fr; }
+}
+
+button.secondary{
+  background:transparent;
+  color:var(--ink);
+}
+
+button.link{
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  padding:0;
+  text-decoration:underline;
+  margin-top:8px;
+}
+button.link.danger{ color:#7a2a2a; }
+
+.status{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:14px;
+  text-align:center;
+}
+
+/* Footer */
+.footer{
+  margin-top:26px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+/* ===== FIX PROGRAMA: layout tipus poster (com Canva) ===== */
+
+/* amplada real del poster: que no quedi massa estret */
+.weekendInner{
+  max-width: 920px; /* abans 980, però amb la teva .page queda millor així */
+}
+
+/* Cada dia: 2 columnes fixes (doodle / text) */
+.dayRow{
+  display:grid !important;
+  grid-template-columns: 220px 1fr !important;
+  column-gap: 30px !important;
+  row-gap: 0 !important;
+  align-items: start !important;
+  padding: 26px 0 !important;
+}
+
+/* Doodle: centrat i amb caixa consistent */
+.dayRow .ill{
+  min-width: 180px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top: 4px;
+}
+
+
+/* Fes el doodle més gran i amb aire */
+.dayRow .doodleSprite{
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 22px !important;
+}
+
+/* Text: una mica més amunt, i sense que "balli" */
+.dayRow .dayText{
+  padding-top: 2px !important;
+}
+
+/* Títols: que quedin molt "poster" */
+.dayName{
+  margin: 0 0 8px !important;
+}
+
+.dayBody p{
+  margin: 10px 0 0 !important;
+  max-width: 62ch; /* així queda com cartell, no massa ample */
+}
+
+/* Alterna esquerra/dreta de manera robusta (sense dependre del teu HTML) */
+.dayRow:nth-of-type(even){
+  grid-template-columns: 1fr 220px !important;
+}
+
+.dayRow:nth-of-type(even) .dayText{
+  order: 1 !important;
+}
+
+.dayRow:nth-of-type(even) .ill{
+  order: 2 !important;
+  justify-content:center !important;
+}
+
+/* En mòbil: 1 columna, doodle a dalt */
+@media (max-width:760px){
+  .ill{
+    justify-content:flex-start;
+    min-width: 0;
+  }
+  .doodleSprite{
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* ===== INTRO (abans del programa) ===== */
+.intro{
+  margin-top: 28px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.introInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.introText p{
+  margin: 12px 0 0;
+  line-height: 1.9;
+  font-size: 17px;
+}
+/* =========================
+   FIX LAYOUT: CAP DE SETMANA
+   ========================= */
+
+.weekendInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.dayRow{
+  display:grid !important;
+  grid-template-columns: 220px 1fr !important; /* col doodle + col text */
+  gap: 28px !important;
+  align-items: center !important;
+  padding: 26px 0 !important;
+}
+
+.dayRow.alt{
+  grid-template-columns: 1fr 220px !important; /* text + doodle */
+}
+
+.dayRow.alt .dayText{ order: 1 !important; }
+.dayRow.alt .ill{ order: 2 !important; }
+
+.weekend .ill{
+  min-width: 220px !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  padding: 0 !important;
+}
+
+.dayText{
+  width: 100% !important;
+}
+
+.dayName.script{
+  font-family: "Caveat", cursive;
+  font-size: 48px !important;
+  margin: 0 0 10px !important;
+  line-height: 1 !important;
+}
+
+.dayBody p{
+  margin: 10px 0 0 !important;
+  line-height: 1.9 !important;
+  font-size: 16px !important;
+  max-width: none !important;
+}
+
+/* mòbil: apila (doodle a sobre del text) */
+@media (max-width: 760px){
+  .dayRow, .dayRow.alt{
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 18px 0 !important;
+  }
+  .weekend .ill{
+    min-width: 0 !important;
+    justify-content:flex-start !important;
+  }
+}
+
+/* =========================
+   FIX LAYOUT: EL LLOC 2 COL
+   ========================= */
+
+.placeInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.place2col{
+  display:grid !important;
+  grid-template-columns: 1.05fr .95fr !important; /* foto + text */
+  gap: 28px !important;
+  align-items: start !important;
+}
+
+.placeImg{
+  margin: 0 !important;
+}
+
+.placeImg img{
+  width: 100% !important;
+  height: 520px !important;
+  object-fit: cover !important;
+  border-radius: 18px !important;
+  display:block !important;
+}
+
+.placeText p{
+  max-width: none !important;
+  margin: 12px 0 0 !important;
+}
+
+/* tablet/mòbil: 1 columna */
+@media (max-width: 900px){
+  .place2col{
+    grid-template-columns: 1fr !important;
+  }
+  .placeImg img{
+    height: 380px !important;
+  }
+}
