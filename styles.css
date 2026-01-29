@@ -1,0 +1,861 @@
+:root{
+  --cream:#f4efe6;
+  --paper:#ffffff;
+  --ink:#111111;
+  --muted:#666666;
+  --line:rgba(17,17,17,.18);
+  --line2:rgba(17,17,17,.10);
+  --radius:18px;
+  --blue:#2f57ff;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  letter-spacing: .3px;
+  font-size: 13px;
+  text-transform: none;
+}
+
+
+
+.page{
+  max-width:860px;
+  margin:0 auto;
+  padding:18px 16px 80px;
+}
+
+/* ===== TIPOGRAFIA “CANVA” ===== */
+p{
+  margin: 12px 0 0;
+  line-height: 1.9;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+}
+
+
+.small,
+.tag{
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: .7;
+}
+/* Text tipus “Canva” (en majúscules) només dins de seccions */
+.introText, .dayBody, .placeText, .rsvpInner, .footer{
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+}
+
+
+/* Títols en majúscules tipus “poster” */
+.weekendTitle,
+.placeTitle,
+.sectionTitle,
+h2{
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+/* ===== NAV ===== */
+.topnav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(244,239,230,.86);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line2);
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  padding:12px 14px;
+}
+
+.topnav a{
+  color:var(--ink);
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:2.6px;
+  text-transform:uppercase;
+  padding:8px 10px;
+  border-radius:999px;
+}
+.topnav a:hover{ background:rgba(17,17,17,.06); }
+
+/* ===== HERO (com la 1a imatge) ===== */
+.hero{
+  margin-top:18px;
+  background: transparent;
+  border-top: 2px solid var(--ink);     /* línia contínua dalt */
+  border-bottom: 2px solid var(--ink);  /* línia contínua baix */
+  border-radius: 0;
+  padding: 34px 16px 26px;
+  text-align:center;
+}
+
+/* Tipos hero “antigues” */
+.kicker{
+  margin:0 0 10px;
+  font-family:"Caveat", cursive;
+  font-size:38px;
+  line-height:1;
+  text-transform:none;      /* IMPORTANT: no en majúscules */
+  letter-spacing:0;
+}
+
+.names{
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;              /* clau: no massa negre */
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.dateplace{
+  margin:14px 0 0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+  letter-spacing:.55px;
+}
+
+.hairline{
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(17,17,17,.45), transparent);
+  margin:18px auto;
+  width:min(520px, 90%);
+}
+
+.lead{
+  margin:0 auto;
+  max-width:62ch;
+  font-size:15.5px;
+  line-height:1.9;
+  letter-spacing:.45px;
+}
+
+.ctaRow{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+/* Buttons */
+.btn, button{
+  display:inline-block;
+  border:1px solid rgba(17,17,17,.25);
+  background:var(--ink);
+  color:#fff;
+  text-decoration:none;
+  border-radius:14px;
+  padding:12px 16px;
+  font-size:15px;
+  letter-spacing:.35px;
+  cursor:pointer;
+}
+.btn:hover, button:hover{ filter:brightness(.92); }
+.btn.ghost{
+  background:transparent;
+  color:var(--ink);
+}
+
+/* ===== FULL BLEED IMAGES ===== */
+.fullbleed{
+  margin-top:22px;
+  width:100vw;
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
+}
+
+.fullbleed img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.fullbleed.heroPhoto img{
+  height: 680px;
+  object-position: 50% 20%;
+}
+.fullbleed.partyPhoto img{
+  height: 520px;
+  object-position: 50% 40%;
+}
+
+@media (max-width: 720px){
+  .fullbleed.heroPhoto img{ height: 420px; }
+  .fullbleed.partyPhoto img{ height: 360px; }
+}
+
+/* ===== DOODLES (SPRITE 3x2) TRANSPARENT ===== */
+.doodleSprite{
+  width: 200px;
+  height: 200px;
+
+  background-image: url("img/doodles.png");
+  background-repeat: no-repeat;
+  background-size: 300% 200%;
+
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  filter: contrast(1.08);
+}
+
+/* Top row */
+.doodle--danceMan { background-position:   0%   0%; }
+.doodle--rings    { background-position:  50%   0%; }
+.doodle--margarita{ background-position: 100%   0%; }
+/* Bottom row */
+.doodle--casa      { background-position:   0% 100%; }
+.doodle--taula     { background-position:  50% 100%; }
+.doodle--copasBall { background-position: 100% 100%; }
+
+/* ===== PROGRAMA (poster) ===== */
+.weekend{
+  margin-top:28px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.weekendInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.weekendTitle{
+  margin:0 0 30px;
+  text-align:left;           /* com la mostra */
+  text-transform:uppercase;
+  font-size: 22px;
+  letter-spacing:3px;
+}
+
+.dayRow{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 26px 0;
+}
+
+.dayRow.alt{
+  grid-template-columns: 1fr 220px;
+}
+.dayRow.alt .dayText{ order: 1; }
+.dayRow.alt .ill{ order: 2; }
+
+.weekend .ill{
+  min-width: 220px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.dayName.script,
+.handTitle{
+  font-family: "Caveat", cursive;
+  text-transform: none;
+  letter-spacing: .3px;
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+
+.dayBody p{
+  margin: 10px 0 0;
+  line-height: 1.9;
+  font-size: 15.5px;
+  letter-spacing:.45px;
+}
+
+/* mòbil */
+@media (max-width: 760px){
+  .dayRow, .dayRow.alt{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .weekend .ill{
+    min-width: 0;
+    justify-content:flex-start;
+  }
+  .doodleSprite{ width: 150px; height: 150px; }
+}
+
+/* ===== EL LLOC (2 col) ===== */
+.place{
+  margin-top: 28px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.placeInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.place2col{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.placeImg{ margin:0; }
+
+.placeImg img{
+  width:100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(17,17,17,.12);
+  display:block;
+  filter: saturate(.92) contrast(1.02);
+}
+
+.placeTitle{
+  margin: 0 0 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+}
+
+.placeText p{
+  margin: 12px 0 0;
+}
+
+@media (max-width: 900px){
+  .place2col{ grid-template-columns: 1fr; }
+  .placeImg img{ height: 380px; }
+}
+
+/* ===== RSVP (opció 5) ===== */
+.rsvpClean{
+  margin-top: 28px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: transparent;
+}
+
+.rsvpInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+.rsvpTop{
+  display:grid;
+  grid-template-columns: 1fr; /* ja no hi ha doodle */
+  gap: 16px;
+  margin: 6px 0 18px;
+}
+
+/* Formulari “paper” */
+#rsvpForm{
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(17,17,17,.12);
+  border-radius: 18px;
+  padding: 22px 18px;
+}
+
+/* Form basics */
+.formTitle{
+  margin:22px 0 8px;
+  font-size:12px;
+  letter-spacing:2.6px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+label{
+  display:block;
+  margin:12px 0;
+  font-size:13.5px;
+  letter-spacing:.35px;
+}
+
+input, select, textarea{
+  width:100%;
+  margin-top:6px;
+  padding:12px 12px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:#fff;
+  color:var(--ink);
+  font: inherit;
+}
+
+input:focus, select:focus, textarea:focus{
+  outline:none;
+  border-color:rgba(17,17,17,.35);
+  box-shadow:0 0 0 3px rgba(17,17,17,.08);
+}
+
+.check{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin:10px 0;
+}
+.check input{ width:auto; margin:0; }
+
+.radioRow{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:6px;
+  padding:10px 12px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:rgba(17,17,17,.02);
+}
+
+.tag{
+  color:var(--muted);
+  font-size:12px;
+  margin-left:6px;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+}
+@media (min-width: 720px){
+  .grid2{ grid-template-columns: 1fr 1fr; }
+}
+
+button.secondary{
+  background:transparent;
+  color:var(--ink);
+}
+
+button.link{
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  padding:0;
+  text-decoration:underline;
+  margin-top:8px;
+}
+button.link.danger{ color:#7a2a2a; }
+
+.status{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+  text-align:center;
+  letter-spacing:.45px;
+}
+
+/* Footer */
+.footer{
+  margin-top:26px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:.55px;
+}
+
+/* Enllaç estil “a mà” */
+.linkHand{
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  margin-left: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  letter-spacing: .2px;
+}
+.linkHand::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-2px;
+  height:2px;
+  background: var(--ink);
+  opacity:.6;
+}
+.linkHand:hover{ opacity:.7; }
+
+/* Separador irregular entre seccions */
+.sectionDivider{
+  height: 2px;
+  max-width: 980px;
+  margin: 42px auto;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink),
+    var(--ink) 14px,
+    transparent 14px,
+    transparent 22px
+  );
+  opacity: .9;
+}
+
+/* Frase humana */
+.humanLine{
+  margin-top: 18px;
+  font-family: "Caveat", cursive;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing:.2px;
+}
+@media (max-width:760px){
+  .humanLine{ font-size: 22px; }
+}
+.weekend,
+.place,
+.rsvpClean,
+.hero{
+  border-top: none;
+  border-bottom: none;
+}
+.humanLineCenter{
+  text-align: center;
+  margin: 26px auto 0;
+  max-width: 900px;
+}
+/* === FIX: frase manuscrita centrada (fora de les columnes) === */
+.humanLine{
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 22px auto 0;
+  font-family: "Caveat", cursive;
+  font-size: 30px;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.sectionDivider{
+  max-width: 980px;
+  margin: 44px auto;
+}
+/* ===== RSVP: recupera el formulari ===== */
+/* RSVP: SENSE línies contínues */
+.rsvpClean{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+
+.rsvpInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+#rsvpForm{
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(17,17,17,.12);
+  border-radius: 18px;
+  padding: 22px 18px;
+}
+
+label{ display:block; margin:12px 0; font-size:14px; }
+
+input, select, textarea{
+  width:100%;
+  margin-top:6px;
+  padding:12px 12px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:#fff;
+  color:var(--ink);
+  font: inherit;
+}
+
+.check{ display:flex; gap:12px; align-items:center; margin:10px 0; }
+.check input{ width:auto; margin:0; }
+
+.grid2{ display:grid; grid-template-columns:1fr; gap:12px; }
+@media (min-width:720px){ .grid2{ grid-template-columns:1fr 1fr; } }
+.footer a{
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* ===== RSVP: recuperació robusta del formulari ===== */
+
+.rsvpInner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 46px 18px;
+}
+
+#rsvpForm{
+  margin-top: 18px;
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(17,17,17,.12);
+  border-radius: 18px;
+  padding: 22px 18px;
+}
+
+/* Estructura del form */
+#rsvpForm h3.formTitle{
+  margin:22px 0 8px;
+  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  color: var(--muted);
+}
+
+#rsvpForm label{
+  display:block;
+  margin:12px 0;
+  font-size:14px;
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea{
+  display:block;
+  width:100%;
+  margin-top:6px;
+  padding:12px 12px;
+  border:1px solid var(--line2);
+  border-radius:14px;
+  background:#fff;
+  color:var(--ink);
+  font: inherit;
+}
+
+#rsvpForm .check{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin:10px 0;
+}
+
+#rsvpForm .check input{
+  width:auto;
+  margin:0;
+}
+
+#rsvpForm .grid2{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+}
+
+@media (min-width: 720px){
+  #rsvpForm .grid2{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Botons dins RSVP */
+#rsvpForm button{
+  margin-top: 14px;
+}
+
+#rsvpForm button.secondary{
+  background: transparent;
+  color: var(--ink);
+}
+
+/* =========================
+   RSVP — HARD RESET (a prova de bombes)
+   Posa-ho al FINAL del CSS
+   ========================= */
+
+#rsvp, #rsvp *{
+  box-sizing: border-box;
+}
+
+/* torna el form i els contenidors a layout normal */
+#rsvp form,
+#rsvp #rsvpForm,
+#rsvp .rsvpInner,
+#rsvp .rsvpTop,
+#rsvp .grid2,
+#rsvp #persones{
+  display: block !important;
+}
+
+/* re-activa la graella només per grid2 */
+#rsvp .grid2{
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 12px !important;
+}
+@media (min-width: 720px){
+  #rsvp .grid2{
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* camps */
+#rsvp label{
+  display: block !important;
+  margin: 12px 0 !important;
+  font-size: 14px !important;
+  letter-spacing: .3px !important;
+}
+
+#rsvp input,
+#rsvp select,
+#rsvp textarea{
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 6px 0 0 !important;
+  padding: 12px 12px !important;
+  border: 1px solid rgba(17,17,17,.10) !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.9) !important;
+  color: var(--ink) !important;
+}
+
+/* checkboxes */
+#rsvp label.check{
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 10px 0 !important;
+}
+#rsvp label.check input{
+  width: auto !important;
+  margin: 0 !important;
+}
+
+/* radiobutton row (personaTpl) */
+#rsvp .radioRow{
+  display: flex !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+  margin-top: 6px !important;
+  padding: 10px 12px !important;
+  border: 1px solid rgba(17,17,17,.10) !important;
+  border-radius: 14px !important;
+  background: rgba(17,17,17,.02) !important;
+}
+
+/* targeta del form */
+#rsvp #rsvpForm{
+  background: rgba(255,255,255,.45) !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 18px !important;
+  padding: 22px 18px !important;
+  margin-top: 18px !important;
+}
+
+/* títols del form */
+#rsvp .formTitle{
+  margin: 22px 0 8px !important;
+  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-size: 12px !important;
+  letter-spacing: 2.2px !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+}
+
+/* botons */
+#rsvp button{
+  display: inline-block !important;
+  width: auto !important;
+}
+#rsvp button.secondary{
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(17,17,17,.25) !important;
+}
+/* === RSVP: camps condicionals (FORÇA AMAGATS per defecte) === */
+#rsvp .p-edat-wrap,
+#rsvp .p-dieta-altres-wrap{
+  display: none !important;
+}
+
+/* quan toca mostrar-los */
+#rsvp .p-edat-wrap.is-open,
+#rsvp .p-dieta-altres-wrap.is-open{
+  display: block !important;
+}
+/* Honeypot anti-spam: no ha d'aparèixer mai */
+#rsvpForm .hp{
+  display: none !important;
+}
+.kicker{
+  font-family:"Caveat", cursive;
+  font-size:38px;
+  text-transform:none;
+  letter-spacing:0;
+}
+.hero{
+  border-top: 2px solid var(--ink) !important;
+  border-bottom: 2px solid var(--ink) !important;
+}
+.names .amp{
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-feature-settings: "liga" 0, "calt" 0, "salt" 0;
+  font-variant-ligatures: none;
+}
+.names .amp{
+  font-family: "Source Serif 4", serif !important;
+  font-weight: 600; /* prova 400 si el vols més fi */
+  font-style: normal;
+  font-feature-settings: normal;
+}
+
+/* 2) TITOLS PRINCIPALS DE SECCIÓ: grans, centrats, cursiva, més aire */
+.weekendTitle{
+  text-align: center !important;
+  font-family: "Playfair Display", serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+
+  font-size: clamp(42px, 6vw, 72px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: 1.2px !important;
+
+  margin: 18px 0 38px !important;
+}
+
+/* (opcional però recomanat) que la intro no quedi tan “apretada” respecte el títol */
+.introText{
+  margin-top: 10px;
+}
+
+/* =========================================================
+   UNIFICAR TIPOGRAFIA DEL TEXT DEL PROGRAMA
+   ========================================================= */
+
+/* Text del programa = mateix estil que el body */
+.dayBody p{
+  font-family: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  text-transform: inherit !important;
+  line-height: 1.9 !important;
+}
+
+/* Manté només una mica d’aire vertical */
+.dayBody p + p{
+  margin-top: 12px;
+}
