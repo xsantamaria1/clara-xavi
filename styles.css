@@ -1166,3 +1166,15 @@ input, select, textarea{
   #lloc .doodleImg.doodleCasa{  width: 225px !important; }
 }
 
+/* ===== FIX MÒBIL: Dissabte — doodle a sobre del títol ===== */
+@media (max-width: 760px){
+  .dayRow.alt .ill{
+    order: 1 !important;
+    margin-bottom: 12px;
+  }
+
+  .dayRow.alt .dayText{
+    order: 2 !important;
+  }
+}
+
