@@ -1908,4 +1908,20 @@ input, select, textarea{
     line-height: 1.9 !important;
   }
 }
+/* ===== FIX FINAL: centrat real del doodle CASA en mòbil ===== */
+@media (max-width: 900px){
+  #lloc .placeCasa{
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 14px 0 0 !important;
+  }
+
+  #lloc .placeCasa img{
+    display: block !important;
+    margin: 0 auto !important;
+  }
+}
+
 
