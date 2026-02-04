@@ -1856,3 +1856,56 @@ input, select, textarea{
   }
 }
 
+/* ===== EL LLOC: layout desktop ===== */
+#lloc .place2col{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 28px;
+  align-items: start;
+}
+
+#lloc .placeRight .importantNote{
+  margin-top: 12px;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  line-height: 1.9;
+}
+
+/* doodle casa centrat (desktop) */
+#lloc .placeCasa{
+  display: none; /* en desktop el volem dins la columna esquerra? NO: el volem “entre” → el mostrem amb grid */
+}
+
+/* Mostrem el doodle casa entre columnes en desktop */
+@media (min-width: 901px){
+  #lloc .placeCasa{
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+    margin: 8px 0 0;
+  }
+}
+
+/* ===== EL LLOC: mòbil 1 columna amb ordre ===== */
+@media (max-width: 900px){
+  #lloc .place2col{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #lloc .placeRight{ order: 1; }     /* foto + important (ara separarem ordre intern) */
+  #lloc .placeImg{ order: 1; }
+  #lloc .importantNote{ order: 4; }
+
+  #lloc .placeText{ order: 2; }
+  #lloc .placeCasa{ order: 3; display: flex; justify-content: center; margin: 14px 0 0; }
+
+  /* IMPORTANT sota el doodle, amb aire i mateixa lletra */
+  #lloc .importantNote{
+    margin-top: 14px !important;
+    font-size: 13px !important;
+    letter-spacing: 1.8px !important;
+    line-height: 1.9 !important;
+  }
+}
+
