@@ -1798,3 +1798,36 @@ input, select, textarea{
   display: block;
   margin: 0 auto;
 }
+/* ===== EL LLOC — ORDRE CORRECTE EN MÒBIL ===== */
+@media (max-width: 900px){
+
+  /* convertim el grid en columna */
+  #lloc .place2col{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ordre base */
+  #lloc .placeImg{ order: 1; }
+  #lloc .placeText{ order: 2; }
+
+  /* Doodle CASA va DESPRÉS del text */
+  #lloc .placeRight{ 
+    order: 3;
+    display: contents; /* clau: “desembolcalla” */
+  }
+
+  /* dins de placeRight */
+  #lloc .placeRight .ill{ 
+    order: 1;
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+  }
+
+  #lloc .placeRight .importantNote{
+    order: 2;
+    margin-top: 14px;
+  }
+}
+
