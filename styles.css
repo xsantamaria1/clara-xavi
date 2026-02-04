@@ -1764,3 +1764,27 @@ input, select, textarea{
     display: block !important;
   }
 }
+
+/* ========== EL LLOC — MÒBIL: doodle CASA abans de IMPORTANT ========== */
+@media (max-width: 760px){
+
+  /* fem que el text sigui flex per poder reordenar elements interns */
+  #lloc .placeText{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* assegurem ordre del doodle casa */
+  #lloc .placeText .ill:has(.doodleCasa){
+    order: 99;               /* al final del text */
+    margin: 16px 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* IMPORTANT sempre després */
+  #lloc .importantNote{
+    order: 100 !important;
+    margin-top: 14px;
+  }
+}
