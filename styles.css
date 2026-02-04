@@ -1831,3 +1831,28 @@ input, select, textarea{
   }
 }
 
+/* ===== FIX FINAL: ordre exacte EL LLOC en mòbil ===== */
+@media (max-width: 900px){
+
+  #lloc .placeImg{ order: 1; }
+  #lloc .placeText{ order: 2; }
+
+  /* doodle CASA DESPRÉS del text */
+  #lloc .doodleCasa{
+    order: 3;
+    display: block;
+    margin: 18px auto;
+  }
+
+  /* IMPORTANT SEMPRE DESPRÉS del doodle */
+  #lloc .importantNote{
+    order: 4;
+    margin-top: 14px;
+  }
+
+  /* frase final */
+  #lloc .humanLine{
+    order: 5;
+  }
+}
+
