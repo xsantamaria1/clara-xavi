@@ -255,65 +255,113 @@ Visita la web del lugar para hacerte una idea de todo
 <div class="sectionDivider"></div>
 
 <section class="rsvpClean" id="rsvp">
+  <div class="rsvpInner">
+    <h2 class="weekendTitle">¿Te apuntas?</h2>
 
-<div class="rsvpInner">
+    <p class="small" style="margin: 0 0 18px;">
+      Para organizarlo de una manera medio eficiente, necesitamos un poco de tu ayuda. Por favor, rellena el formulario.
+    </p>
 
-<h2 class="weekendTitle">¿Te apuntas?</h2>
+    <form id="rsvpForm">
+      <h3 class="formTitle">Datos de contacto</h3>
 
-<p class="small" style="margin:0 0 18px;">
-Para organizarlo de una manera medio eficiente necesitamos un poco de tu ayuda. Por favor, rellena el formulario.
-</p>
+      <label>Nombre y apellidos
+        <input name="contact_nom" required>
+      </label>
 
-<form id="rsvpForm">
+      <div class="grid2">
+        <label>Teléfono
+          <input name="contact_telefon" inputmode="tel" autocomplete="tel">
+        </label>
+        <label>Correo electrónico
+          <input name="contact_email" type="email" autocomplete="email">
+        </label>
+      </div>
 
-<h3 class="formTitle">Datos de contacto</h3>
+      <h3 class="formTitle">Personas que vendréis</h3>
 
-<label>Nombre y apellidos
-<input name="contact_nom" required>
-</label>
+      <button
+        type="button"
+        class="addPersonaHand"
+        id="addPersona">
+        + Añadir otra persona
+      </button>
 
-<div class="grid2">
+      <div id="persones"></div>
 
-<label>Teléfono
-<input name="contact_telefon">
-</label>
+      <div class="formSideBySide">
+        <div class="formSideMain">
 
-<label>Correo electrónico
-<input name="contact_email" type="email">
-</label>
+          <h3 class="formTitle">Comidas</h3>
+          <label class="check"><input type="checkbox" name="apat_divendres"> Cena viernes</label>
+          <label class="check"><input type="checkbox" name="apat_dissabte_dinar"> Comida sábado</label>
+          <label class="check">
+            <input type="checkbox" name="apat_dissabte_sopar" checked disabled>
+            Cena sábado <span class="tag">(obligatoria)</span>
+          </label>
+          <label class="check"><input type="checkbox" name="apat_diumenge"> Comida domingo</label>
 
-</div>
+          <h3 class="formTitle">¿Te quedas a dormir con nosotros?</h3>
+          <label class="check"><input type="checkbox" name="dormir_divendres_dissabte"> Viernes → sábado</label>
+          <label class="check"><input type="checkbox" name="dormir_dissabte_diumenge"> Sábado → domingo</label>
+          <label class="check"><input type="checkbox" name="dormir_no"> No</label>
+        </div>
 
-<h3 class="formTitle">Personas que vendréis</h3>
+        <aside class="formSideArt" aria-hidden="true">
+          <img class="doodleImg" src="img/copes.png" alt="">
+        </aside>
+      </div>
 
-<button type="button" class="addPersonaHand" id="addPersona">
-+ Añadir otra persona
-</button>
+      <h3 class="formTitle">¿Algo más que decir?</h3>
+      <textarea name="comentaris" rows="4" placeholder="(opcional)"></textarea>
 
-<div id="persones"></div>
+      <!-- honeypot anti-spam -->
+      <input type="text" name="website" class="hp" autocomplete="off" tabindex="-1">
 
-<h3 class="formTitle">Comidas</h3>
+      <button type="submit" id="submitBtn">Confirmar asistencia</button>
+      <p class="status" id="status"></p>
+    </form>
 
-<label class="check"><input type="checkbox" name="apat_divendres"> Cena viernes</label>
-<label class="check"><input type="checkbox" name="apat_dissabte_dinar"> Comida sábado</label>
-<label class="check"><input type="checkbox" name="apat_diumenge"> Comida domingo</label>
+    <template id="personaTpl">
+      <div class="persona">
+        <label>Nombre y apellidos
+          <input class="p-nom" required>
+        </label>
 
-<h3 class="formTitle">¿Te quedas a dormir con nosotros?</h3>
+        <div class="radioRow">
+          <label class="check">
+            <input type="radio" class="p-tipus p-adult" value="Adulto" checked>
+            Adulto
+          </label>
+          <label class="check">
+            <input type="radio" class="p-tipus p-nen" value="Niño">
+            Niño/a
+          </label>
+        </div>
 
-<label class="check"><input type="checkbox" name="dormir_divendres_dissabte"> Viernes → sábado</label>
-<label class="check"><input type="checkbox" name="dormir_dissabte_diumenge"> Sábado → domingo</label>
-<label class="check"><input type="checkbox" name="dormir_no"> No</label>
+        <label class="p-edat-wrap" style="display:none">Edad
+          <input type="number" class="p-edat" min="0" max="17">
+        </label>
 
-<h3 class="formTitle">¿Algo más que decir?</h3>
+        <label>Dieta / intolerancias
+          <select class="p-dieta">
+            <option value="Ninguna">Ninguna</option>
+            <option value="Vegetariano">Vegetariano</option>
+            <option value="Vegano">Vegano</option>
+            <option value="Otras">Otras</option>
+          </select>
+        </label>
 
-<textarea name="comentaris" rows="4"></textarea>
+        <label class="p-dieta-altres-wrap" style="display:none">Especifica
+          <input class="p-dieta-altres" placeholder="Ej.: sin gluten, frutos secos, soy Héctor…">
+        </label>
 
-<button type="submit">Confirmar asistencia</button>
+        <button type="button" class="link danger removePersona">Quitar</button>
+        <div class="hairline" aria-hidden="true"></div>
+      </div>
+    </template>
 
-</form>
-
-</div>
-
+  </div>
 </section>
 
 <p class="giftNote">
@@ -337,4 +385,5 @@ Puedes consultar nuestra política de protección de datos
 <script src="script.js" defer></script>
 
 </body>
+
 </html>
