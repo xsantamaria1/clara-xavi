@@ -1917,30 +1917,7 @@ input, select, textarea{
   height:auto;
 }
 
-@media (max-width: 768px){
-  .place2col{
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
 
-  .placeText{
-    order:1;
-  }
-
-  .placeRight{
-    order:2;
-    gap:16px;
-  }
-
-  .placeCasa{
-    justify-content:center;
-    margin-top:4px;
-  }
-
-  .doodleCasa{
-    max-width:140px;
-  }
-}
 /* ===== EL LLOC — FIX FINAL MÒBIL ===== */
 @media (max-width: 768px){
   #lloc .place2col{
@@ -1976,4 +1953,5 @@ input, select, textarea{
     justify-content: center !important;
     margin-top: 4px !important;
   }
+
 }
