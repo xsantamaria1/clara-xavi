@@ -1927,11 +1927,9 @@ input, select, textarea{
   }
 
   /* primer tota l'esquerra */
-  #lloc .placeTitle{
-    order: 1 !important;}
-#lloc .placeImg{ order: 2 !important; }
+#lloc .placeImg{ order: 1 !important; }
   #lloc .placeText{
-    order: 3 !important;
+    order: 2 !important;
   }
 
   /* després tota la dreta */
@@ -1955,3 +1953,4 @@ input, select, textarea{
   }
 
 }
+
