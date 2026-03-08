@@ -1952,4 +1952,9 @@ input, select, textarea{
     justify-content: center !important;
     margin-top: 4px !important;
   }
+
+}
+
+  #lloc .importantNote + .roomNote{
+  margin-top: 6px;
 }
