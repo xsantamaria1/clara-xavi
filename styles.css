@@ -1968,3 +1968,68 @@ input, select, textarea{
 
   color: var(--muted);
 }
+.place2col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items:start;
+}
+
+.placeText,
+.placeRight{
+  min-width: 0;
+}
+
+.placeRight{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.placeImg{
+  width:100%;
+}
+
+.placeImg img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.placeCasa{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-top:12px;
+}
+
+.doodleCasa{
+  max-width:180px;
+  width:100%;
+  height:auto;
+}
+
+@media (max-width: 768px){
+  .place2col{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .placeText{
+    order:1;
+  }
+
+  .placeRight{
+    order:2;
+    gap:16px;
+  }
+
+  .placeCasa{
+    justify-content:center;
+    margin-top:4px;
+  }
+
+  .doodleCasa{
+    max-width:140px;
+  }
+}
